@@ -1,0 +1,59 @@
+{
+  "name": "@defolym3/do3-router-sdk",
+  "version": "0.1.0",
+  "author": "thanhnhaweb3",
+  "module": "dist/do3-router-sdk.esm.js",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepublishOnly": "npm run build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "dependencies": {
+    "@defolym3/do3-sdk-core": "^0.1.0",
+    "@defolym3/do3-v2-sdk": "^0.1.0",
+    "@defolym3/do3-v3-sdk2": "^0.1.0",
+    "@uniswap/swap-router-contracts": "1.1.0",
+    "jsbi": "^3.1.4"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.2.6",
+    "husky": "^8.0.3",
+    "prettier": "^2.3.1",
+    "size-limit": "^8.2.6",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.1.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "size-limit": [
+    {
+      "path": "dist/do3-router-sdk.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/do3-router-sdk.esm.js",
+      "limit": "10 KB"
+    }
+  ]
+}
